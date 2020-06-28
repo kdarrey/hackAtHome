@@ -46,11 +46,11 @@ const routes = [
     redirect: "/login"
   },
   guestPages,
-  offerPages,
+  homePages,
   {
     path: "/offer",
     name: "Offer",
-    component: () => import(/* webpackChunkName: "home" */ "@/views/Offer.vue")
+    component: () => import(/* webpackChunkName: "home" */ "@/views/Oferta.vue")
   }
 ];
 
