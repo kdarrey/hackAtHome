@@ -3,14 +3,14 @@ package com.hack.equipo4.utils;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hack.equipo4.dtos.Product;
+import com.hack.equipo4.dtos.Oferta;
 import com.hack.equipo4.dtos.Provider;
 
 public class Utils {
 	
-	public List<Product> generateProduct(){
-		List<Product> productos = new ArrayList<>();
-		Product p = new Product();
+	public List<Oferta> generateOfertas(){
+		List<Oferta> productos = new ArrayList<>();
+		Oferta p = new Oferta();
 		p.setNombre("Patatas");
 		p.setPrecio(12.0);
 		

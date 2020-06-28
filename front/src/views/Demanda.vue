@@ -32,7 +32,7 @@
                    
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
-              >Guardar</el-button
+              >Gardar</el-button
             >
           </el-form-item>
         </el-form>

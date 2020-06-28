@@ -22,6 +22,8 @@
         <hr class="my-4">
         <p>Primeiro, empeza por buscar se hai algunha demanda de compra interesante. Se non atopas una</p>
         <el-button @click="newDemand" type="primary">Crea unha nova demanda de compra</el-button>
+        <el-button @click="newOffer" type="primary">Crea unha nova oferta de compra</el-button>
+
       </div>
 
       <div>
@@ -103,6 +105,9 @@ export default {
     },
     newDemand() {
       this.$router.replace({ name: 'Demand' });
+    },
+    newOffer() {
+      this.$router.replace({ name: 'Offer' });
     }
   }
 };

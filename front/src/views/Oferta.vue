@@ -41,7 +41,7 @@
           
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
-              >Enviar</el-button
+              >Gardar</el-button
             >
           </el-form-item>
         </el-form>

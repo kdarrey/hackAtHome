@@ -17,9 +17,9 @@ public class Provider {
 	private String mail;
 	private String direccion;
 	private String telefono;
-	@OneToMany(targetEntity=Product.class, mappedBy="provider", fetch=FetchType.EAGER)
+	@OneToMany(targetEntity=Oferta.class, mappedBy="provider", fetch=FetchType.EAGER)
 
-	private List<Product> productos;
+	private List<Oferta> productos;
 	
 	
 	public String getNombre() {
@@ -52,10 +52,10 @@ public class Provider {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public List<Product> getProductos() {
+	public List<Oferta> getProductos() {
 		return productos;
 	}
-	public void setProductos(List<Product> productos) {
+	public void setProductos(List<Oferta> productos) {
 		this.productos = productos;
 	}
 	public Integer getIdProvider() {
