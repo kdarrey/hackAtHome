@@ -27,7 +27,7 @@
         <el-form :data="form">
           <div class="d-flex flex-row flex-nowrap">
           <el-form-item class="flex-grow-1">
-            <el-input placeholder="Introduce o texto a buscar nas demandas existentes" v-model="form.query"/>
+            <el-input name="query" placeholder="Introduce o texto a buscar nas demandas existentes" v-model="form.query"/>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="search"><font-awesome-icon icon="search"/></el-button>

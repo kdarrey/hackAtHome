@@ -30,11 +30,10 @@ const guestPages = {
 const homePages = {
   path: "/home",
   component: () => import(/* webpackChunkName: "templates" */ "@/templates/HomeTemplate.vue"),
-  name: "Home",
   children: [
     {
       path: "",
-      name: "Home Root",
+      name: "Home",
       component: () => import(/* webpackChunkName: "home" */ "@/views/Home.vue")
     }
   ]
