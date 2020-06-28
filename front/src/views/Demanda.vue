@@ -11,25 +11,30 @@
               <el-input name="name" v-model="form.name"></el-input>
             </el-form-item>
             <el-form-item label="Descripcion" class="col-lg-6 col-12">
-              <el-input name="description" v-model="form.description"></el-input>
+              <el-input
+                name="description"
+                v-model="form.description"
+              ></el-input>
             </el-form-item>
           </div>
           <div class="row">
             <el-form-item label="Prezo máximo" class="col-lg-6 col-12">
-               <el-input name="prize" v-model="form.prezo"></el-input>
+              <el-input name="prize" v-model="form.prezo"></el-input>
             </el-form-item>
-            <el-form-item label="Tipo unidade (kilos, unidade,...)" class="col-lg-6 col-12">
+            <el-form-item
+              label="Tipo unidade (kilos, unidade,...)"
+              class="col-lg-6 col-12"
+            >
               <el-input name="unit" v-model="form.unit"></el-input>
             </el-form-item>
           </div>
 
-           <div class="row">
+          <div class="row">
             <el-form-item label="Data máxima" class="col-lg-6 col-12">
-               <el-input name="date" v-model="form.date"></el-input>
+              <el-input name="date" v-model="form.date"></el-input>
             </el-form-item>
-            
           </div>
-                   
+
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
               >Gardar</el-button
@@ -50,7 +55,7 @@ export default {
         description: "",
         prezo: "",
         unit: "",
-        date: ""
+        date: "",
       },
     };
   },

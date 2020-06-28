@@ -1,6 +1,8 @@
 <template>
   <div class="m-auto">
-    <h1 class="text-center p-5 logo-text logo-transparent-bg text-light"><strong>eFeira!</strong></h1>
+    <h1 class="text-center p-5 logo-text logo-transparent-bg text-light">
+      <strong>eFeira!</strong>
+    </h1>
     <el-card class="login-card mt-5">
       <div class="text-center m-3">
         <font-awesome-icon icon="user-circle" size="6x" />

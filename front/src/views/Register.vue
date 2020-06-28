@@ -36,12 +36,17 @@
           </el-form-item>
           <div class="row">
             <el-form-item label="Provincia" class="col-lg-6 col-12">
-              <el-select v-model="form.provincia" clearable placeholder="Select">
+              <el-select
+                v-model="form.provincia"
+                clearable
+                placeholder="Select"
+              >
                 <el-option
                   v-for="item in provincias"
                   :key="item.value"
                   :label="item.label"
-                  :value="item.value">
+                  :value="item.value"
+                >
                 </el-option>
               </el-select>
             </el-form-item>
@@ -51,7 +56,8 @@
                   v-for="item in concellos"
                   :key="item.value"
                   :label="item.label"
-                  :value="item.value">
+                  :value="item.value"
+                >
                 </el-option>
               </el-select>
             </el-form-item>
@@ -106,10 +112,10 @@ export default {
         password: "",
         passwordAgain: "",
         provincia: "",
-        concello: ""
+        concello: "",
       },
       provincias: [],
-      concellos: []
+      concellos: [],
     };
   },
   methods: {
