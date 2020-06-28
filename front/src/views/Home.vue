@@ -21,15 +21,15 @@
         <p class="lead">Aquí poderás ver demandas de compra, sumarte a elas, e facer ofertas</p>
         <hr class="my-4">
         <p>Primeiro, empeza por buscar se hai algunha demanda de compra interesante.</p> 
-        <p>Se es vendedor, e atopas algunha interesante, fai unha oferta.</p> 
-        <p>Se es comprador e deches cunha do teu interese, únete. Se non, preme o botón de abaixo e</p>
+        <p>Se es <strong>vendedor</strong>, e atopas algunha interesante, entra e fai unha oferta.</p> 
+        <p>Se es <strong>comprador</strong> e deches cunha do teu interese, entra e únete. Se non, preme o botón de abaixo e</p>
         <el-button @click="newDemand" type="primary">Crea unha nova demanda de compra</el-button>
         <el-button @click="newOffer" type="primary">Crea unha nova oferta de compra</el-button>
 
       </div>
 
       <div>
-        <el-form :data="form" @submit.prevent="search">
+        <el-form :data="form" @submit.native.prevent="search">
           <div class="d-flex flex-row flex-nowrap">
           <el-form-item class="flex-grow-1">
             <el-input name="query" placeholder="Introduce o texto a buscar nas demandas existentes" v-model="form.query"/>
@@ -42,11 +42,11 @@
       </div>
 
       <div v-if="results.isVisible" class="d-flex flex-row flex-wrap">
-        <div v-for="item in results.items" :key="item">
+        <div v-for="item in results.items" :key="item.id">
         <el-card class="m-3" :body-style="{ padding: '0px', width: '300px' }">
           <div class="offer-img" style="background-image:url(/img/potatoes-411975_1920.jpg)"></div>
           <div class="p-3">
-            <div><a href="#">{{item.title}}</a></div>
+            <div><router-link :to="{ name: 'ViewDemand'}">{{item.title}}</router-link></div>
             <div><strong>Creada por</strong> {{item.owner.alias}}</div>
             <div><strong>Localidade:</strong> {{item.owner.concello}} ({{item.owner.provincia}})</div>
             <div><strong>Finaliza en</strong> {{item.daysLeft}} días</div>
