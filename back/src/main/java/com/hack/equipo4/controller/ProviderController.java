@@ -11,25 +11,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.hack.equipo4.dtos.Product;
-import com.hack.equipo4.repository.ProductRespository;
+import com.hack.equipo4.dtos.Provider;
+import com.hack.equipo4.repository.ProviderRepository;
 import com.hack.equipo4.utils.Utils;
-
 @Controller
-public class ProductController {
+public class ProviderController {
 	
 	@Autowired
-	private ProductRespository productRespository;
+	ProviderRepository providerRepository;
+
 	
-	@GetMapping(path="/allProductos",produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path="/allProviders",produces=MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins="*")// in this line add your url and thats is all for spring boot side
 	@ResponseStatus( HttpStatus.OK )
-	public @ResponseBody List<Product> findAllProductos(){
-		//List<Product> products = new ArrayList<Product>();
-		//products = (List<Product>) this.productRespository.findAll();
+	public @ResponseBody List<Provider> findAllProductos(){
+		//List<Provider> products = new ArrayList<Provider>();
+		//products = (List<Provider>) this.providerRepository.findAll();
 		Utils utils = new Utils();
-		return utils.generateProduct();
+		return utils.generateProviders();
 		
 	}
-
 }
