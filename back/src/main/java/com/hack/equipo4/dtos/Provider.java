@@ -3,25 +3,25 @@ package com.hack.equipo4.dtos;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Provider {
 	
 	@Id
-	private Integer id;
+	private Integer idProvider;
 	private String nombre;
 	private String CIF;
 	private String mail;
 	private String direccion;
 	private String telefono;
+	@OneToMany(targetEntity=Product.class, mappedBy="provider", fetch=FetchType.EAGER)
+
+	private List<Product> productos;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -51,6 +51,18 @@ public class Provider {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+	public List<Product> getProductos() {
+		return productos;
+	}
+	public void setProductos(List<Product> productos) {
+		this.productos = productos;
+	}
+	public Integer getIdProvider() {
+		return idProvider;
+	}
+	public void setIdProvider(Integer idProvider) {
+		this.idProvider = idProvider;
 	}
 	
 

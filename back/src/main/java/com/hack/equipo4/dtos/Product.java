@@ -4,26 +4,26 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Product {
 
 	@Id
-	private Integer id;
+	private Integer idProduct;
 	private String nombre;
 	private Double precio;
 	
+	@ManyToOne
+    @JoinColumn(name="id")
+	private Provider provider;
 	
 	private String localizacion;
 	private Date fechaEntrega;
 	private String modo;
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,5 +53,17 @@ public class Product {
 	}
 	public void setModo(String modo) {
 		this.modo = modo;
+	}
+	public Integer getIdProduct() {
+		return idProduct;
+	}
+	public void setIdProduct(Integer idProduct) {
+		this.idProduct = idProduct;
+	}
+	public Provider getProvider() {
+		return provider;
+	}
+	public void setProvider(Provider provider) {
+		this.provider = provider;
 	}
 }

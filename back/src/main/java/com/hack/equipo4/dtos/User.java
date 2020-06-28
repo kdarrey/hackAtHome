@@ -10,19 +10,14 @@ public class User {
 		super();
 	}
 	@Id
-	private Integer id;
+	private Integer idUsuario;
 	private String login;
 	private String password;
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private String dni;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+
 	public String getLogin() {
 		return login;
 	}
@@ -58,6 +53,12 @@ public class User {
 	}
 	public void setDni(String dni) {
 		this.dni = dni;
+	}
+	public Integer getIdUsuario() {
+		return idUsuario;
+	}
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 	
 
