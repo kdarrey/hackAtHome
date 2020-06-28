@@ -1,0 +1,76 @@
+<template>
+  <div class="container">
+    <el-card class="mt-5">
+      <div slot="header">
+        <h1 class="h3 text-bold">Nova oferta</h1>
+      </div>
+      <div>
+        <el-form :data="form">
+          <div class="row">
+            <el-form-item label="Nome" class="col-lg-6 col-12">
+              <el-input name="name" v-model="form.name"></el-input>
+            </el-form-item>
+            <el-form-item label="Descripcion" class="col-lg-6 col-12">
+              <el-input name="description" v-model="form.description"></el-input>
+            </el-form-item>
+          </div>
+          <div class="row">
+            <el-form-item label="Prezo" class="col-lg-6 col-12">
+               <el-input name="prize" v-model="form.prezo"></el-input>
+            </el-form-item>
+            <el-form-item label="Tipo unidade (kilos, unidade,...)" class="col-lg-6 col-12">
+              <el-input name="unit" v-model="form.unit"></el-input>
+            </el-form-item>
+          </div>
+          <div class="row">
+            <el-form-item label="Cantidade mínima" class="col-lg-6 col-12">
+              <el-input name="minUnit" v-model="form.minUnit"></el-input>
+            </el-form-item>
+          </div>
+          <div class="row">
+             <el-form-item label="Localización" class="col-lg-6 col-12">
+              <el-input name="location" v-model="form.location"></el-input>
+            </el-form-item>
+            <el-form-item label="Data máxima" class="col-lg-6 col-12">
+              <el-input name="date" v-model="form.date"></el-input>
+            </el-form-item>
+            <el-form-item label="Modo de entrega" class="col-lg-6 col-12">
+              <el-input name="mode" v-model="form.mode"></el-input>
+            </el-form-item>
+          </div>
+          </div>
+          
+          <el-form-item>
+            <el-button type="primary" @click="save" class="w-100"
+              >Enviar</el-button
+            >
+          </el-form-item>
+        </el-form>
+      </div>
+    </el-card>
+  </div>
+</template>
+<script>
+export default {
+  name: "offer-page",
+  data() {
+    return {
+      form: {
+        name: "",
+        description: "",
+        prezo: "",
+        unit: "",
+        minunit: "",
+        locatiom: "",
+        date: "",
+        mode: ""
+      },
+    };
+  },
+  methods: {
+    save() {
+      this.$router.replace({ name: "Home" });
+    },
+  },
+};
+</script>
