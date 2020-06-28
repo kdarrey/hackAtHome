@@ -1,6 +1,5 @@
 package com.hack.equipo4.controller;
 
-import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
