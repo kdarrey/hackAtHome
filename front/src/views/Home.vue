@@ -106,14 +106,7 @@ export default {
       return Math.floor(Math.random() * Math.floor(max));
     },
     newDemand() {
-<<<<<<< HEAD
-      this.$router.replace({ name: 'Demand' });
-    },
-    newOffer() {
-      this.$router.replace({ name: 'Offer' });
-=======
       this.$router.replace({ name: 'NewDemand' });
->>>>>>> c2261dc09fea3963c1eb8dc3f9a6e44ddb1accb5
     }
   }
 };
