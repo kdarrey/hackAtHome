@@ -17,3 +17,9 @@ Para poder executar o frontend, será preciso:
 ### Frontend
 - Para ver en vivo o proxecto (lanza un servidor web de proba), executar dende `/front` o comando `npm run serve`
 - Para construir o proxecto (deixa o resultado na carpeta `/front/dist`), executar dende `/front` o comando `npm run build`
+
+
+
+## Backend
+
+Spring + Hibernte 
