@@ -20,7 +20,7 @@
         <h1 class="display-4">Benvid@ á eFeira!</h1>
         <p class="lead">Aquí poderás ver demandas de compra, sumarte a elas, e facer ofertas</p>
         <hr class="my-4">
-        <p>Primeiro, empeza por buscar se hai algunha oferta interesante</p>
+        <p>Primeiro, empeza por buscar se hai algunha demanda de compra interesante</p>
       </div>
 
       <div>
