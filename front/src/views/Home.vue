@@ -23,9 +23,7 @@
         <p>Primeiro, empeza por buscar se hai algunha demanda de compra interesante.</p> 
         <p>Se es <strong>vendedor</strong>, e atopas algunha interesante, entra e fai unha oferta.</p> 
         <p>Se es <strong>comprador</strong> e deches cunha do teu interese, entra e únete. Se non, preme o botón de abaixo e</p>
-        <el-button @click="newDemand" type="primary">Crea unha nova demanda de compra</el-button>
-        <el-button @click="newOffer" type="primary">Crea unha nova oferta de compra</el-button>
-
+        <el-button @click="newDemand" type="primary">Crea unha nova demanda de compra</el-button>      
       </div>
 
       <div>
