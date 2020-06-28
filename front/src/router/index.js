@@ -35,7 +35,17 @@ const homePages = {
       path: "",
       name: "Home",
       component: () => import(/* webpackChunkName: "home" */ "@/views/Home.vue")
-    }
+    },
+    {
+      path: "/offer/new",
+      name: "Offer",
+      component: () => import(/* webpackChunkName: "home" */ "@/views/Oferta.vue")
+    },
+    {
+      path: "/demand/new",
+      name: "Demand",
+      component: () => import(/* webpackChunkName: "home" */ "@/views/Demanda.vue")
+    }        
   ]
 }
 
@@ -46,11 +56,6 @@ const routes = [
   },
   guestPages,
   homePages,
-  {
-    path: "/offer",
-    name: "Offer",
-    component: () => import(/* webpackChunkName: "home" */ "@/views/Oferta.vue")
-  }
 ];
 
 const router = new VueRouter({
