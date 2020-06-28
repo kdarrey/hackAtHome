@@ -1,10 +1,100 @@
 <template>
-  <div>Bienvenido a casa!</div>
-</template>
+  <div class="container">
+    <el-card class="mt-5">
+      <!--
+      <el-tabs type="border-card">
+        <el-tab-pane>
+          <span slot="label" class="h5">
+            <font-awesome-icon icon="shopping-bag"/> Mercar
+          </span>
+        </el-tab-pane>
+        <el-tab-pane>
+          <span slot="label" class="h5">
+            <font-awesome-icon icon="hand-holding-usd"/> Vender
+          </span>
+        </el-tab-pane>
+      </el-tabs>
+      -->
 
+      <div class="jumbotron">
+        <h1 class="display-4">Benvid@ á eFeira!</h1>
+        <p class="lead">Aquí poderás ver demandas de compra, sumarte a elas, e facer ofertas</p>
+        <hr class="my-4">
+        <p>Primeiro, empeza por buscar se hai algunha oferta interesante</p>
+      </div>
+
+      <div>
+        <el-form :data="form">
+          <div class="d-flex flex-row flex-nowrap">
+          <el-form-item class="flex-grow-1">
+            <el-input placeholder="Introduce o texto a buscar nas demandas existentes" v-model="form.query"/>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="search"><font-awesome-icon icon="search"/></el-button>
+          </el-form-item>
+          </div>
+        </el-form>
+      </div>
+
+      <div v-if="results.isVisible" class="d-flex flex-row flex-wrap">
+        <div v-for="item in results.items" :key="item">
+        <el-card class="m-3" :body-style="{ padding: '0px', width: '300px' }">
+          <div class="offer-img" style="background-image:url(/img/potatoes-411975_1920.jpg)"></div>
+          <div class="p-3">
+            <div><a href="#">{{item.title}}</a></div>
+            <div><strong>Creada por</strong> {{item.owner}}</div>
+            <div><strong>Finaliza en</strong> {{item.daysLeft}} días</div>
+          </div>
+        </el-card>
+        </div>
+      </div>
+
+    </el-card>
+  </div>
+</template>
+<style scoped>
+  .offer-img {
+    background-size: cover;
+    height: 160px;
+  }
+</style>
 <script>
 export default {
   name: "Home",
-  components: {}
+  data() {
+    return {
+      form: {
+        query: ""
+      },
+      results: {
+        isVisible: false,
+        items: []
+      }
+    }
+  },
+  methods: {
+    search() {
+      this.results.isVisible = true;
+      this.generateRandomResults();
+    },
+    generateRandomResults() {
+
+      let numberOfResults = this.getRandomInt(20);
+      let randomResults = [];
+      for(let i = 0; i < numberOfResults; i++) {
+        randomResults.push({
+          id: i,
+          title: this.form.query || 'patacas',
+          daysLeft: this.getRandomInt(30),
+          owner: 'usuario_' + this.getRandomInt(1000)          
+        })
+      }
+      this.results.items = randomResults;
+
+    },
+    getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }    
+  }
 };
 </script>

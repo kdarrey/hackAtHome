@@ -35,6 +35,28 @@
             <el-input name="address" v-model="form.address"></el-input>
           </el-form-item>
           <div class="row">
+            <el-form-item label="Provincia" class="col-lg-6 col-12">
+              <el-select v-model="form.provincia" clearable placeholder="Select">
+                <el-option
+                  v-for="item in provincias"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="Concello" class="col-lg-6 col-12">
+              <el-select v-model="form.concello" clearable placeholder="Select">
+                <el-option
+                  v-for="item in concellos"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+                </el-option>
+              </el-select>
+            </el-form-item>
+          </div>
+          <div class="row">
             <el-form-item
               label="Alias (nome visible dentro da plataforma)"
               class="col-lg-6 col-12"
@@ -83,7 +105,11 @@ export default {
         alias: "",
         password: "",
         passwordAgain: "",
+        provincia: "",
+        concello: ""
       },
+      provincias: [],
+      concellos: []
     };
   },
   methods: {

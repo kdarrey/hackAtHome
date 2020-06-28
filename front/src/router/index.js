@@ -24,10 +24,21 @@ const guestPages = {
       name: "Register",
       component: () => import(/* webpackChunkName: "guest" */ "@/views/Register.vue")
     },
-
-    
   ] 
 };
+
+const homePages = {
+  path: "/home",
+  component: () => import(/* webpackChunkName: "templates" */ "@/templates/HomeTemplate.vue"),
+  name: "Home",
+  children: [
+    {
+      path: "",
+      name: "Home Root",
+      component: () => import(/* webpackChunkName: "home" */ "@/views/Home.vue")
+    }
+  ]
+}
 
 const routes = [
   {
@@ -35,11 +46,6 @@ const routes = [
     redirect: "/login"
   },
   guestPages,
-  {
-    path: "/home",
-    name: "Home",
-    component: () => import(/* webpackChunkName: "home" */ "@/views/Home.vue")
-  },
   offerPages,
   {
     path: "/offer",

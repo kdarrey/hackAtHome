@@ -14,6 +14,8 @@ import ElementUI from "element-ui";
 import { Input, Tooltip, Popover } from "element-ui";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUserCircle, faShoppingBag, faHandHoldingUsd, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 Object.keys(rules).forEach(rule => {
   extend(rule, {
@@ -30,6 +32,10 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.use(ElementUI);
 Vue.use(Tooltip);
 Vue.use(Popover);
+
+
+library.add(faUserCircle, faShoppingBag, faHandHoldingUsd, faSearch);
+
 
 Vue.config.productionTip = false;
 
