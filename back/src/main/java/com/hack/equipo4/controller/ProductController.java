@@ -18,7 +18,7 @@ public class ProductController {
 	
 	private ProductRespository productRespository;
 	
-	@GetMapping(path="/allPropiedades",produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path="/allProductos",produces=MediaType.APPLICATION_JSON_VALUE)
 	@CrossOrigin(origins="*")// in this line add your url and thats is all for spring boot side
 	@ResponseStatus( HttpStatus.OK )
 	public List<Product> findAllProductos(){
