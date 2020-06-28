@@ -1,11 +1,14 @@
 package com.hack.equipo4.dtos;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class User {
+	public User() {
+		super();
+	}
 	@Id
 	private Integer id;
 	private String login;

@@ -15,7 +15,6 @@ public class Provider {
 	private String mail;
 	private String direccion;
 	private String telefono;
-	private List<Product> productos;
 	
 	public Integer getId() {
 		return id;
@@ -52,12 +51,6 @@ public class Provider {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-	public List<Product> getProductos() {
-		return productos;
-	}
-	public void setProductos(List<Product> productos) {
-		this.productos = productos;
 	}
 	
 
