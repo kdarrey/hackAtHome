@@ -38,7 +38,6 @@
               <el-input name="mode" v-model="form.mode"></el-input>
             </el-form-item>
           </div>
-          </div>
           
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
