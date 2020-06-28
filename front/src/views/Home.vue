@@ -20,7 +20,9 @@
         <h1 class="display-4">Benvid@ á eFeira!</h1>
         <p class="lead">Aquí poderás ver demandas de compra, sumarte a elas, e facer ofertas</p>
         <hr class="my-4">
-        <p>Primeiro, empeza por buscar se hai algunha demanda de compra interesante. Se non atopas una</p>
+        <p>Primeiro, empeza por buscar se hai algunha demanda de compra interesante.</p> 
+        <p>Se es vendedor, e atopas algunha interesante, fai unha oferta.</p> 
+        <p>Se es comprador e deches cunha do teu interese, únete. Se non, preme o botón de abaixo e</p>
         <el-button @click="newDemand" type="primary">Crea unha nova demanda de compra</el-button>
         <el-button @click="newOffer" type="primary">Crea unha nova oferta de compra</el-button>
 
@@ -104,10 +106,14 @@ export default {
       return Math.floor(Math.random() * Math.floor(max));
     },
     newDemand() {
+<<<<<<< HEAD
       this.$router.replace({ name: 'Demand' });
     },
     newOffer() {
       this.$router.replace({ name: 'Offer' });
+=======
+      this.$router.replace({ name: 'NewDemand' });
+>>>>>>> c2261dc09fea3963c1eb8dc3f9a6e44ddb1accb5
     }
   }
 };

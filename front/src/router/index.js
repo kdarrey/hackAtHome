@@ -38,14 +38,25 @@ const homePages = {
     },
     {
       path: "/offer/new",
-      name: "Offer",
+      name: "NewOffer",
+      component: () => import(/* webpackChunkName: "home" */ "@/views/Oferta.vue")
+    },
+    {
+      path: "/offer/mock/view",
+      name: "ViewOffer",
       component: () => import(/* webpackChunkName: "home" */ "@/views/Oferta.vue")
     },
     {
       path: "/demand/new",
-      name: "Demand",
+      name: "NewDemand",
+      component: () => import(/* webpackChunkName: "home" */ "@/views/Demanda.vue")
+    },
+    {
+      path: "/demand/mock/view",
+      name: "ViewDemand",
       component: () => import(/* webpackChunkName: "home" */ "@/views/Demanda.vue")
     }        
+
   ]
 }
 
