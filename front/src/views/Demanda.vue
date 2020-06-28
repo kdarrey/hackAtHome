@@ -15,33 +15,24 @@
             </el-form-item>
           </div>
           <div class="row">
-            <el-form-item label="Prezo" class="col-lg-6 col-12">
+            <el-form-item label="Prezo máximo" class="col-lg-6 col-12">
                <el-input name="prize" v-model="form.prezo"></el-input>
             </el-form-item>
             <el-form-item label="Tipo unidade (kilos, unidade,...)" class="col-lg-6 col-12">
               <el-input name="unit" v-model="form.unit"></el-input>
             </el-form-item>
           </div>
-          <div class="row">
-            <el-form-item label="Cantidade mínima" class="col-lg-6 col-12">
-              <el-input name="minUnit" v-model="form.minUnit"></el-input>
-            </el-form-item>
-          </div>
-          <div class="row">
-             <el-form-item label="Localización" class="col-lg-6 col-12">
-              <el-input name="location" v-model="form.location"></el-input>
-            </el-form-item>
+
+           <div class="row">
             <el-form-item label="Data máxima" class="col-lg-6 col-12">
-              <el-input name="date" v-model="form.date"></el-input>
+               <el-input name="date" v-model="form.date"></el-input>
             </el-form-item>
-            <el-form-item label="Modo de entrega" class="col-lg-6 col-12">
-              <el-input name="mode" v-model="form.mode"></el-input>
-            </el-form-item>
+            
           </div>
                    
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
-              >Enviar</el-button
+              >Guardar</el-button
             >
           </el-form-item>
         </el-form>
@@ -59,10 +50,7 @@ export default {
         description: "",
         prezo: "",
         unit: "",
-        minunit: "",
-        locatiom: "",
-        date: "",
-        mode: ""
+        date: ""
       },
     };
   },
