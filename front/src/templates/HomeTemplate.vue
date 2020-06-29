@@ -28,19 +28,7 @@
               <router-link class="nav-link" :to="{ name: 'OfferList'}">Mercar </router-link>
             </li>
             <li class="nav-item dropdown ml-auto">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                ><font-awesome-icon icon="user-circle" size="x2"
-              /></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Sair</a>
-              </div>
+              <router-link class="nav-link" :to="{ name: 'Login'}">Sair </router-link>
             </li>
           </ul>
         </div>
