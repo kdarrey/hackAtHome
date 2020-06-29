@@ -17,6 +17,7 @@
         </el-form-item>
         <el-form-item>
           <el-input
+            type="password"
             name="password"
             placeholder="Contraseña"
             v-model="form.password"
@@ -31,7 +32,7 @@
       <div>
         <div>
           <router-link :to="{ name: 'Register' }"
-            >¿Aún no tienes usuario? ¡Regístrate!</router-link
+            >Aínda non tes usuario? Rexístrate!</router-link
           >
         </div>
       </div>
