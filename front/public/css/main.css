@@ -3,3 +3,8 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.offer-img {
+  background-size: cover;
+  height: 160px;
+}
