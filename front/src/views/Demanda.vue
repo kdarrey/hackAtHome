@@ -2,7 +2,7 @@
   <div class="container">
     <el-card class="mt-5">
       <div slot="header">
-        <h1 class="h3 text-bold">Nova demanda</h1>
+        <h1 class="h3 text-bold">{{ idDemanda ? "Modificar" : "Nova"}} demanda</h1>
       </div>
       <div>
         <el-form :data="form">
@@ -41,6 +41,25 @@
             >
           </el-form-item>
         </el-form>
+        <el-collapse>
+          <el-collapse-item name="oferta">
+            <template #title>
+              <h2 class="h5">Datos da oferta</h2>
+            </template>
+            <div>
+              <dl class="d-flex flex-row flex-wrap">
+                <div class="m-3">
+                <dt>Categoría</dt>
+                <dd>Alimentación</dd>
+                </div>
+                <div class="m-3">
+                <dt>Nome</dt>
+                <dd>Patacas</dd>
+                </div>
+              </dl>
+            </div>
+          </el-collapse-item>
+        </el-collapse>
       </div>
     </el-card>
   </div>

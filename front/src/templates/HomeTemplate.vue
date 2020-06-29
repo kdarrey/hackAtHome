@@ -20,9 +20,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav w-100">
             <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
+              <router-link class="nav-link" :to="{ name: 'Home' }"
+                >Inicio <span class="sr-only">(current)</span></router-link
               >
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" :to="{ name: 'OfferList'}">Mercar </router-link>
             </li>
             <li class="nav-item dropdown ml-auto">
               <a
@@ -43,7 +46,7 @@
         </div>
       </nav>
       <router-view></router-view>
-      <div class="footer mt-auto"><Footer></Footer></div>
+      <div class="footer mt-auto"><app-footer></app-footer></div>
     </div>
   </div>
 </template>
@@ -65,9 +68,9 @@
 }
 </style>
 <script>
-import Footer from "@/components/Footer.vue";
+import AppFooter from "@/components/Footer.vue";
 
 export default {
-  components: { Footer },
+  components: { AppFooter },
 };
 </script>

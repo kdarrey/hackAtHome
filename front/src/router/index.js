@@ -42,25 +42,37 @@ const homePages = {
         import(/* webpackChunkName: "home" */ "@/views/Home.vue"),
     },
     {
-      path: "/offer/new",
+      path: "/oferta",
+      name: "OfferList",
+      component: () =>
+        import(/* webpackChunkName: "home" */ "@/views/OfferList.vue"),
+    },
+    {
+      path: "/compra",
+      name: "DemandList",
+      component: () =>
+        import(/* webpackChunkName: "home" */ "@/views/DemandList.vue"),
+    },
+    {
+      path: "/oferta/nova",
       name: "NewOffer",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Oferta.vue"),
     },
     {
-      path: "/offer/mock/view",
+      path: "/oferta/:idOffer/ver",
       name: "ViewOffer",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Oferta.vue"),
     },
     {
-      path: "/demand/new",
+      path: "/compra/nova",
       name: "NewDemand",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Demanda.vue"),
     },
     {
-      path: "/demand/mock/view",
+      path: "/compra/:idDemand/ver",
       name: "ViewDemand",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Demanda.vue"),

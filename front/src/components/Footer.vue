@@ -15,7 +15,7 @@
 import About from "@/views/About.vue";
 
 export default {
-  name: "footer",
+  name: "app-footer",
   components: { About },
   data() {
     return {
