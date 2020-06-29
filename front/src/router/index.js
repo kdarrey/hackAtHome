@@ -48,12 +48,6 @@ const homePages = {
         import(/* webpackChunkName: "home" */ "@/views/OfferList.vue"),
     },
     {
-      path: "/compra",
-      name: "DemandList",
-      component: () =>
-        import(/* webpackChunkName: "home" */ "@/views/DemandList.vue"),
-    },
-    {
       path: "/oferta/nova",
       name: "NewOffer",
       component: () =>
@@ -64,6 +58,7 @@ const homePages = {
       name: "ViewOffer",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Oferta.vue"),
+      props: true,
     },
     {
       path: "/compra/nova",
