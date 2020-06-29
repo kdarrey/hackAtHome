@@ -2,7 +2,9 @@
   <div class="container">
     <el-card class="mt-5">
       <div slot="header">
-        <h1 class="h3 text-bold">Nova oferta</h1>
+        <h1 class="h3 text-bold">
+          {{ idOffer !== undefined ? "" : "Nova" }} Oferta
+        </h1>
       </div>
       <div>
         <el-form :data="form">
@@ -52,12 +54,53 @@
           </el-form-item>
         </el-form>
       </div>
+
+      <el-card class="border-none" v-if="idOffer !== undefined">
+        <div slot="header">
+          <strong>Compras activas sobre esta oferta</strong>
+        </div>
+        <div class="d-flex flex-row flex-wrap">
+          <div v-for="item in buys" :key="item.id">
+            <el-card
+              class="m-3"
+              :body-style="{ padding: '0px', width: '300px' }"
+            >
+              <div
+                class="offer-img"
+                style="background-image:url(/img/potatoes-411975_1920.jpg)"
+              ></div>
+              <div class="p-3">
+                <div>
+                  <router-link
+                    :to="{ name: 'ViewDemand', params: { idDemand: item.id } }"
+                    >{{ item.title }}</router-link
+                  >
+                </div>
+                <div>
+                  <strong>Localidade:</strong> {{ item.owner.concello }} ({{
+                    item.owner.provincia
+                  }})
+                </div>
+                <div><strong>Finaliza en</strong> {{ item.daysLeft }} días</div>
+              </div>
+            </el-card>
+          </div>
+        </div>
+      </el-card>
     </el-card>
   </div>
 </template>
 <script>
+import MockUtils from "@/utils/MockUtils";
+
 export default {
   name: "offer-page",
+  props: {
+    idOffer: {
+      type: [Number, String],
+      required: false,
+    },
+  },
   data() {
     return {
       form: {
@@ -70,12 +113,39 @@ export default {
         date: "",
         mode: "",
       },
+      buys: [],
     };
   },
   methods: {
     save() {
       this.$router.replace({ name: "Home" });
     },
+    generateRandomBuys() {
+      let numberOfResults = MockUtils.getRandomInt(10);
+      let title = MockUtils.getMockProducts()[
+        MockUtils.getRandomInt(MockUtils.getMockProducts().length)
+      ];
+      let randomResults = [];
+      for (let i = 0; i < numberOfResults; i++) {
+        randomResults.push({
+          id: i,
+          title: title,
+          daysLeft: MockUtils.getRandomInt(30),
+          owner: {
+            alias: "usuario_" + MockUtils.getRandomInt(1000),
+            provincia: "A Coruña",
+            concello: "Santiago",
+          },
+        });
+      }
+      this.buys = randomResults;
+    },
+    getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    },
+  },
+  created() {
+    this.generateRandomBuys();
   },
 };
 </script>
