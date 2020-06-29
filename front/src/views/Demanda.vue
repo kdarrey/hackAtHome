@@ -48,6 +48,12 @@
 <script>
 export default {
   name: "offer-page",
+  props: {
+    idDemanda: {
+      type: Number,
+      required: false
+    }
+  },
   data() {
     return {
       form: {

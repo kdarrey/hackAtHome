@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-card class="mt-5">
+    <el-card class="my-3">
       <!--
       <el-tabs type="border-card">
         <el-tab-pane>

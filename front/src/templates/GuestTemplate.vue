@@ -7,7 +7,7 @@
       </a>
     </nav>
     <router-view></router-view>
-    <div class="footer"></div>
+    <div class="footer mt-auto"><Footer></Footer></div>
   </div>
 </template>
 <style scoped>
@@ -23,5 +23,11 @@
 }
 </style>
 <script>
-export default {};
+import Footer from "@/components/Footer.vue";
+
+export default {
+  components: {
+    Footer,
+  },
+};
 </script>

@@ -64,6 +64,7 @@ const homePages = {
       name: "ViewDemand",
       component: () =>
         import(/* webpackChunkName: "home" */ "@/views/Demanda.vue"),
+      props: true,
     },
   ],
 };

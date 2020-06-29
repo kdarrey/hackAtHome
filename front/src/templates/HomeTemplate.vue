@@ -1,6 +1,6 @@
 <template>
-  <div class="home-bg d-flex flex-column">
-    <div class="home-bg-transparency">
+  <div class="home-bg">
+    <div class="home-bg-transparency d-flex flex-column">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand logo-text" href="#">
           <!--<img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">-->
@@ -43,7 +43,7 @@
         </div>
       </nav>
       <router-view></router-view>
-      <div class="footer"></div>
+      <div class="footer mt-auto"><Footer></Footer></div>
     </div>
   </div>
 </template>
@@ -65,5 +65,9 @@
 }
 </style>
 <script>
-export default {};
+import Footer from "@/components/Footer.vue";
+
+export default {
+  components: { Footer },
+};
 </script>

@@ -15,12 +15,17 @@ import { Input, Tooltip, Popover } from "element-ui";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faUserCircle, faShoppingBag, faHandHoldingUsd, faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserCircle,
+  faShoppingBag,
+  faHandHoldingUsd,
+  faSearch,
+} from "@fortawesome/free-solid-svg-icons";
 
-Object.keys(rules).forEach(rule => {
+Object.keys(rules).forEach((rule) => {
   extend(rule, {
     ...rules[rule], // copies rule configuration
-    message: messages[rule] // assign message
+    message: messages[rule], // assign message
   });
 });
 
@@ -33,13 +38,11 @@ Vue.use(ElementUI);
 Vue.use(Tooltip);
 Vue.use(Popover);
 
-
 library.add(faUserCircle, faShoppingBag, faHandHoldingUsd, faSearch);
-
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
+  render: (h) => h(App),
 }).$mount("#app");
