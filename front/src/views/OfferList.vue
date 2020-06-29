@@ -32,7 +32,7 @@
           <div class="p-3">
             <div>
               <router-link
-                :to="{ name: 'ViewDemand', params: { idDemanda: item.id } }"
+                :to="{ name: 'ViewOffer', params: { idOffer: item.id } }"
                 >{{ item.title }}</router-link
               >
             </div>

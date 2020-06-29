@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     save() {
-      this.$router.replace({ name: "Home" });
+      this.$router.replace({ name: "Login" });
     },
   },
 };
