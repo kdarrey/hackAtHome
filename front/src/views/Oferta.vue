@@ -38,8 +38,8 @@
             <el-form-item label="Modo de entrega" class="col-12">
               <el-input
                 type="textarea"
-                name="mode"
-                v-model="form.mode"
+                name="shippingDetails"
+                v-model="form.shippingDetails"
               ></el-input>
             </el-form-item>
 
@@ -174,12 +174,12 @@ export default {
       form: {
         name: "",
         description: "",
-        prezo: "",
         unit: "",
-        minunit: "",
-        locatiom: "",
+        minUnit: "",
+        concello: "",
+        provincia: "",
         date: "",
-        mode: "",
+        shippingDetails: "",
         prices: [],
       },
       buys: [],
@@ -223,6 +223,14 @@ export default {
   created() {
     if(this.idOffer !== undefined) {
       this.generateRandomBuys();
+
+      this.form.name =  "Patacas";
+      this.form.description = "Bla bla";
+      this.form.unit = "kg";
+      this.form.minUnit = "100";
+      this.form.concello = this.concellos[2];
+      this.form.provincia = this.provincias[0];
+
       this.form.prices = [
         {
           price: "10",

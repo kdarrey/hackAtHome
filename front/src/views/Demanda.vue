@@ -174,9 +174,10 @@ export default {
       form: {
         name: "",
         description: "",
-        prezo: "",
         unit: "",
         date: "",
+        concello: "",
+        provincia: ""
       },
       participants: [],
       provincias: ["A Coruña"],
@@ -210,6 +211,12 @@ export default {
   created() {
     if (this.idDemand !== undefined) {
       this.createMockParticipants();
+
+      this.form.name =  "Patacas";
+      this.form.description = "Bla bla";
+      this.form.unit = "kg";
+      this.form.concello = this.concellos[2];
+      this.form.provincia = this.provincias[0];      
     }
   },
 };
