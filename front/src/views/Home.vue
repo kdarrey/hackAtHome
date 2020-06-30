@@ -146,7 +146,7 @@ export default {
   },
   methods: {
     generateRandomOffers() {
-      let numberOfResults = MockUtils.getRandomInt(5);
+      let numberOfResults = MockUtils.getRandomInt(5) + 1;
       let randomResults = [];
       for (let i = 0; i < numberOfResults; i++) {
         randomResults.push({
@@ -165,7 +165,7 @@ export default {
       this.offers = randomResults;
     },
     generateRandomDemands() {
-      let numberOfResults = MockUtils.getRandomInt(2);
+      let numberOfResults = MockUtils.getRandomInt(2) + 1;
       let randomResults = [];
       for (let i = 0; i < numberOfResults; i++) {
         randomResults.push({
@@ -184,7 +184,7 @@ export default {
       this.demands = randomResults;
     },
     generateRandomBuys() {
-      let numberOfResults = MockUtils.getRandomInt(5);
+      let numberOfResults = MockUtils.getRandomInt(5) + 1;
       let randomResults = [];
       for (let i = 0; i < numberOfResults; i++) {
         randomResults.push({

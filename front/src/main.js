@@ -20,6 +20,7 @@ import {
   faShoppingBag,
   faHandHoldingUsd,
   faSearch,
+  faTrash
 } from "@fortawesome/free-solid-svg-icons";
 
 Object.keys(rules).forEach((rule) => {
@@ -38,7 +39,7 @@ Vue.use(ElementUI);
 Vue.use(Tooltip);
 Vue.use(Popover);
 
-library.add(faUserCircle, faShoppingBag, faHandHoldingUsd, faSearch);
+library.add(faUserCircle, faShoppingBag, faHandHoldingUsd, faSearch, faTrash);
 
 Vue.config.productionTip = false;
 

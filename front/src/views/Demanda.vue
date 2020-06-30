@@ -1,11 +1,16 @@
 <template>
   <div class="container">
-    <el-card class="mt-5">
+    <el-card class="my-5">
       <div slot="header" class="d-flex flex-row">
         <h1 class="h3 text-bold">
           {{ idDemand !== undefined ? "" : "Nova" }} Compra
         </h1>
-        <el-button type="success" class="ml-auto">Unirse á compra</el-button>
+        <router-link
+          v-if="idDemand !== undefined"
+          class="ml-auto btn btn-success"
+          :to="{ name: 'Home' }"
+          >Unirse á compra</router-link
+        >
       </div>
       <div>
         <el-form :data="form">
@@ -21,23 +26,38 @@
             </el-form-item>
           </div>
           <div class="row">
-            <el-form-item label="Prezo máximo" class="col-lg-6 col-12">
-              <el-input name="prize" v-model="form.prezo"></el-input>
-            </el-form-item>
-            <el-form-item
-              label="Tipo unidade (kilos, unidade,...)"
-              class="col-lg-6 col-12"
-            >
-              <el-input name="unit" v-model="form.unit"></el-input>
+            <el-form-item label="Data límite" class="col-lg-6 col-12">
+              <el-input type="date" name="date" v-model="form.date"></el-input>
             </el-form-item>
           </div>
-
           <div class="row">
-            <el-form-item label="Data máxima" class="col-lg-6 col-12">
-              <el-input name="date" v-model="form.date"></el-input>
+            <el-form-item label="Provincia" class="col-lg-6 col-12">
+              <el-select
+                v-model="form.provincia"
+                clearable
+                placeholder="Select"
+              >
+                <el-option
+                  v-for="item in provincias"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="Concello" class="col-lg-6 col-12">
+              <el-select v-model="form.concello" clearable placeholder="Select">
+                <el-option
+                  v-for="item in concellos"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                >
+                </el-option>
+              </el-select>
             </el-form-item>
           </div>
-
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
               >Gardar</el-button
@@ -114,6 +134,25 @@
               ></el-table-column>
             </el-table>
           </el-collapse-item>
+          <el-collapse-item name="totais">
+            <template #title>
+              <h2 class="h5">Totais</h2>
+            </template>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Unidades</th>
+                  <th scope="col">Prezo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ totalUnits }}</td>
+                  <td>€€€€€</td>
+                </tr>
+              </tbody>
+            </table>
+          </el-collapse-item>
         </el-collapse>
       </div>
     </el-card>
@@ -140,7 +179,17 @@ export default {
         date: "",
       },
       participants: [],
+      provincias: ["A Coruña"],
+      concellos: ["A Coruña", "Ferrol", "Santiago", "Carballo"],
     };
+  },
+  computed: {
+    totalUnits() {
+      return this.participants.reduce(
+        (previousValue, participant) => previousValue + participant.units,
+        0
+      );
+    },
   },
   methods: {
     save() {

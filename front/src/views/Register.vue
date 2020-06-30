@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-card class="mt-5">
+    <el-card class="my-5">
       <div slot="header">
         <h1 class="h3 text-bold">Formulario de rexistro</h1>
       </div>
@@ -43,9 +43,9 @@
               >
                 <el-option
                   v-for="item in provincias"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
+                  :key="item"
+                  :label="item"
+                  :value="item"
                 >
                 </el-option>
               </el-select>
@@ -54,9 +54,9 @@
               <el-select v-model="form.concello" clearable placeholder="Select">
                 <el-option
                   v-for="item in concellos"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
+                  :key="item"
+                  :label="item"
+                  :value="item"
                 >
                 </el-option>
               </el-select>
@@ -114,8 +114,8 @@ export default {
         provincia: "",
         concello: "",
       },
-      provincias: [],
-      concellos: [],
+      provincias: ["A Coruña"],
+      concellos: ["A Coruña", "Ferrol", "Santiago", "Carballo"],
     };
   },
   methods: {

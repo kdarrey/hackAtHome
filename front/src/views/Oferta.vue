@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <el-card class="mt-5">
+    <el-card class="my-5">
       <div slot="header">
         <h1 class="h3 text-bold">
           {{ idOffer !== undefined ? "" : "Nova" }} Oferta
@@ -9,19 +9,20 @@
       <div>
         <el-form :data="form">
           <div class="row">
-            <el-form-item label="Nome" class="col-lg-6 col-12">
+            <el-form-item label="Nome" class="col-12">
               <el-input name="name" v-model="form.name"></el-input>
             </el-form-item>
-            <el-form-item label="Descripcion" class="col-lg-6 col-12">
+            <el-form-item label="Descrición" class="col-12">
               <el-input
+                type="textarea"
                 name="description"
                 v-model="form.description"
               ></el-input>
             </el-form-item>
           </div>
           <div class="row">
-            <el-form-item label="Prezo" class="col-lg-6 col-12">
-              <el-input name="prize" v-model="form.prezo"></el-input>
+            <el-form-item label="Cantidade mínima" class="col-lg-6 col-12">
+              <el-input name="minUnit" v-model="form.minUnit"></el-input>
             </el-form-item>
             <el-form-item
               label="Tipo unidade (kilos, unidade,...)"
@@ -31,21 +32,83 @@
             </el-form-item>
           </div>
           <div class="row">
-            <el-form-item label="Cantidade mínima" class="col-lg-6 col-12">
-              <el-input name="minUnit" v-model="form.minUnit"></el-input>
+            <el-form-item label="Válida ata" class="col-lg-6 col-12">
+              <el-input type="date" name="date" v-model="form.date"></el-input>
+            </el-form-item>
+            <el-form-item label="Modo de entrega" class="col-12">
+              <el-input
+                type="textarea"
+                name="mode"
+                v-model="form.mode"
+              ></el-input>
+            </el-form-item>
+
+            <el-form-item label="Provincia" class="col-lg-6 col-12">
+              <el-select
+                v-model="form.provincia"
+                clearable
+                placeholder="Select"
+              >
+                <el-option
+                  v-for="item in provincias"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                >
+                </el-option>
+              </el-select>
+            </el-form-item>
+            <el-form-item label="Concello" class="col-lg-6 col-12">
+              <el-select v-model="form.concello" clearable placeholder="Select">
+                <el-option
+                  v-for="item in concellos"
+                  :key="item"
+                  :label="item"
+                  :value="item"
+                >
+                </el-option>
+              </el-select>
             </el-form-item>
           </div>
-          <div class="row">
-            <el-form-item label="Localización" class="col-lg-6 col-12">
-              <el-input name="location" v-model="form.location"></el-input>
-            </el-form-item>
-            <el-form-item label="Data máxima" class="col-lg-6 col-12">
-              <el-input name="date" v-model="form.date"></el-input>
-            </el-form-item>
-            <el-form-item label="Modo de entrega" class="col-lg-6 col-12">
-              <el-input name="mode" v-model="form.mode"></el-input>
-            </el-form-item>
-          </div>
+          <el-card class="shadow-none my-3">
+            <div slot="header" class="d-flex">
+              <strong>Prezos</strong>
+              <el-button type="primary" @click="addPrice" class="ml-auto"
+                >+</el-button
+              >
+            </div>
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Prezo unitario</th>
+                  <th scope="col">Límite inferior (unidades)</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody v-if="form.prices.length < 1">
+                <tr>
+                  <td colspan="3">Non hai prezos definidos</td>
+                </tr>
+              </tbody>
+              <tbody v-for="(price, index) in form.prices" :key="index">
+                <tr>
+                  <td>
+                    <input type="text" v-model="form.prices[index].price" /> €
+                  </td>
+                  <td>
+                    dende
+                    <input type="text" v-model="form.prices[index].limit" />
+                    unidades
+                  </td>
+                  <td>
+                    <el-button type="danger" @click="removePrice(index)"
+                      ><font-awesome-icon icon="trash"
+                    /></el-button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </el-card>
 
           <el-form-item>
             <el-button type="primary" @click="save" class="w-100"
@@ -56,8 +119,13 @@
       </div>
 
       <el-card class="border-none" v-if="idOffer !== undefined">
-        <div slot="header">
+        <div slot="header" class="d-flex">
           <strong>Compras activas sobre esta oferta</strong>
+          <router-link
+            class="btn btn-primary ml-auto"
+            :to="{ name: 'NewDemand' }"
+            >Crear compra</router-link
+          >
         </div>
         <div class="d-flex flex-row flex-wrap">
           <div v-for="item in buys" :key="item.id">
@@ -112,8 +180,11 @@ export default {
         locatiom: "",
         date: "",
         mode: "",
+        prices: [],
       },
       buys: [],
+      provincias: ["A Coruña"],
+      concellos: ["A Coruña", "Ferrol", "Santiago", "Carballo"],
     };
   },
   methods: {
@@ -140,12 +211,25 @@ export default {
       }
       this.buys = randomResults;
     },
-    getRandomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max));
+    addPrice() {
+      let newPrices = this.form.prices.slice();
+      newPrices.push({ price: "", limit: "" });
+      this.form.prices = newPrices;
+    },
+    removePrice(index) {
+      this.form.prices.splice(index, 1);
     },
   },
   created() {
-    this.generateRandomBuys();
+    if(this.idOffer !== undefined) {
+      this.generateRandomBuys();
+      this.form.prices = [
+        {
+          price: "10",
+          limit: "0"
+        }
+      ]
+    }
   },
 };
 </script>
